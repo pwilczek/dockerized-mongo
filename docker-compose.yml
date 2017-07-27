@@ -1,0 +1,21 @@
+mongo-m1:
+  image: mongo
+  ports: ["27017:27017"]
+  hostname: "mongo-m1"
+  volumes:
+    - ./shared:/opt/mongo/shared
+  command: mongod --smallfiles --replSet ses --auth --keyFile /opt/mongo/shared/mongo.key
+mongo-m2:
+  image: mongo
+  ports: ["27018:27017"]
+  hostname: "mongo-m2"
+  volumes:
+    - ./shared:/opt/mongo/shared
+  command: mongod --smallfiles --replSet ses --auth --keyFile /opt/mongo/shared/mongo.key
+mongo-m3:
+  image: mongo
+  ports: ["27019:27017"]
+  hostname: "mongo-m3"
+  volumes:
+    - ./shared:/opt/mongo/shared
+  command: mongod --smallfiles --replSet ses --auth --keyFile /opt/mongo/shared/mongo.key
